@@ -1,0 +1,166 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.Signup {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  transition: color 0.2s linear;
+}
+.Signup:hover {
+  color: orange;
+}
+.button {
+  border-radius: 1px;
+  margin-top: 10px;
+  border: 0px;
+  background-color: rgb(255, 35, 35);
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  color: white;
+  transition: background-color 0.2s linear, color 0.2s linear;
+  font-weight: bold;
+}
+.button:hover {
+  background-color: #ffffff; /* Màu nền khi di chuột vào */
+  color: rgb(255, 35, 35);
+  font-weight: bolder;
+}
+.input {
+  border-radius: 1px;
+  color: white;
+  border: 0px;
+  opacity: 100%;
+  width: 99%;
+  height: 40px;
+  background-color: rgb(80, 80, 80);
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+.input:hover {
+  background-color: rgb(90, 90, 90);
+}
+.label {
+  color: white;
+}
+.logo {
+  margin-top: 0px;
+  margin-left: 0px;
+  text-align: center;
+  display: inline;
+  font-weight: bolder;
+  font-size: 40px;
+}
+.logo p {
+  font-size: 49px;
+  transition: text-shadow 0.25s linear;
+}
+.p {
+  color: white;
+}
+.wrong {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: rgb(253, 30, 30);
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65),
+    0 0 30px rgba(255, 0, 0, 0.55);
+}
+body {
+  background-image: url("https://bombaydosacafe.ca/wp-content/uploads/2022/11/best-street-food-in-Calgary.jpg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center; /* căn ngang */
+  align-items: center; /* căn dọc */
+  height: 100vh;
+  margin: 0;
+  background-position: center;
+}
+#carry {
+  text-align: center;
+  display: inline;
+  text-shadow: 0 0 10px rgba(12, 12, 12, 0.65), 0 0 20px rgba(0, 0, 0, 0.325),
+    0 0 30px rgba(0, 0, 0, 0.1125);
+}
+#carry:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.75),
+    0 0 20px rgb(255, 255, 255, 0.5), 0 0 30px rgb(255, 255, 255, 0.25);
+}
+#div {
+  width: 350px;
+  margin-top: 0%;
+  padding: 4.7%;
+  padding-top: 3%;
+  background-color: rgba(0, 0, 0, 0.767);
+  border-radius: 30px;
+}
+#east {
+  text-align: center;
+  color: orange;
+  display: inline;
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.75),
+    0 0 20px rgba(255, 0165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.25);
+}
+#east:hover {
+  text-shadow: 0 0 10px rgba(255, 165, 0, 1), 0 0 20px rgba(255, 0165, 0, 1),
+    0 0 30px rgba(255, 165, 0, 1);
+}
+#F {
+  text-align: center;
+  color: red;
+  display: inline;
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65),
+    0 0 30px rgba(255, 0, 0, 0.55);
+}
+#F:hover {
+  text-shadow: 0 0 10px rgba(255, 0, 0, 20), 0 0 20px rgba(255, 0, 0, 20),
+    0 0 30px rgba(255, 0, 0, 20);
+}
+#link {
+  transition: color 0.2s ease-out;
+  text-decoration: none;
+  font-weight: bold;
+}
+#link:hover {
+  color: orange !important;
+  text-decoration: underline;
+}
+#S {
+  text-align: center;
+  color: red;
+  display: inline;
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65),
+    0 0 30px rgba(255, 0, 0, 0.55);
+}
+#S:hover {
+  text-shadow: 0 0 10px rgba(255, 0, 0, 20), 0 0 20px rgba(255, 0, 0, 20),
+    0 0 30px rgba(255, 0, 0, 20);
+}
+#treet {
+  text-align: center;
+  color: orange;
+  display: inline;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.75),
+    0 0 20px rgba(255, 0165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.25);
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+}
+#treet:hover {
+  text-shadow: 0 0 10px rgba(255, 165, 0, 1), 0 0 20px rgba(255, 0165, 0, 1),
+    0 0 30px rgba(255, 165, 0, 1);
+}
+input::placeholder {
+  color: rgb(175, 175, 175);
+}
+input:hover::placeholder {
+  color: rgb(180, 180, 180);
+}

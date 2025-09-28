@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div id="div">
+        <div class="logo">
+            <p id="carry">🍛</p><p id="S">S</p><p id="treet">treet</p><p id="F">F</p><p id="east">east</p>
+        </div>
+
+        <form id="signup">
+        <h1 class="Signup"> Sign up</h1>
+            <input class = "input" type="text" maxlength="20" id="name" autocomplete="off" placeholder="   Username" onfocus="document.getElementById('wrongName').innerText = ''">
+            <p class="wrong" id="wrongName"></p>
+            <input class = "input" type="email" id="email" autocomplete="off" placeholder="   Email address" onfocus="document.getElementById('wrongEmail').innerText = ''">
+            <p class="wrong" id="wrongEmail"></p>
+            <input class = "input" type="password" maxlength="20" id="password" autocomplete="new-password" placeholder="   Password" onfocus="document.getElementById('wrongPass').innerText = ''">
+            <p class="wrong" id="wrongPass"></p>
+            <input class ="button" type="submit" value="Sign up"><br><br>
+        </form>
+        <br>
+        <div class="p" style="text-align: center;">
+            <span style="color: rgb(145, 145, 145);">Đã có tài khoản? </span>
+            <a href="../login/login.html" style="color: rgb(255, 255, 255);" id="link">Đăng nhập</a>
+            <span style="color: rgb(145, 145, 145);"> ngay</span>
+        </div>
+    </div>
+    <script type="module" src="./signup.js"></script>
+    <script type="module" src="../firebase-config.js"></script>
+</body>
+</html>

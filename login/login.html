@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div id="div">
+        <div class="logo">
+            <p id="carry">🍛</p><p id="S">S</p><p id="treet">treet</p><p id="F">F</p><p id="east">east</p>
+        </div>
+
+        <h1 class="Login"> Log In</h1>
+        <form autocomplete="off">
+            <input class = "input" type="text" id="name" autocomplete="off" placeholder="   Username" onfocus="document.getElementById('wrongName').innerText = ''">
+            <p class="wrong" id="wrongName"></p>
+            <input class = "input" type="password" id="password" autocomplete="new-password" placeholder="   Password" onfocus="document.getElementById('wrongPass').innerText = ''">
+            <p class="wrong" id="wrongPass"></p>
+            <input onclick="check()" class="button" type="button" value="Log in"><br><br>
+        </form>
+        <br>
+        <div class="p" style="text-align: center;">
+            <span style="color: rgb(145, 145, 145);">Chưa có tài khoản? </span>
+            <a href="../register/signup.html" style="color: rgb(255, 255, 255);" id="link">Đăng ký</a>
+            <span style="color: rgb(145, 145, 145);"> ngay</span>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

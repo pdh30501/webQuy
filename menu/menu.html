@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Page</title>
+    <link rel="stylesheet" href="menu.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <a class="logo" href="../homepage/homepage.html">
+        <p id="carry">🍛</p>
+        <p id="S">S</p>
+        <p id="treet">treet</p>
+        <p id="F">F</p>
+        <p id="east">east</p>
+      </a>
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="../menu/menu.html">
+              <i class="fa-solid fa-clipboard-list"></i> Menu
+            </a>
+            <a class="nav-link" href="../news/news.html">
+              <i class="fa-solid fa-newspaper"></i> Tin tức
+            </a>
+            <a class="nav-link" href="../shopping/shop.html">
+              <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+            </a>
+            <!-- Example single danger button -->
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn-danger dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-user"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../login/login.html"
+                    >Đăng nhập</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../register/signup.html"
+                    >Đăng ký</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="../information/inform.html">Thông tin</a>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn-danger dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-gear"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../setting/about/about.html">About</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="../setting/theme/theme.html">Theme</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+        <h1>Menu</h1>
+
+        <div class="container-grid">
+          <div class="aboutus">
+            <p style="font-weight: bold;">About us:</p>
+            <p>- Giờ hoạt động: 24/24</p>
+            <p>- Phone number: 090 2729 859</p>
+          </div>
+          <img
+            class="foot-img"
+            style="background-color: white; margin-top: 125px"
+            src="https://png.pngtree.com/png-clipart/20231016/original/pngtree-street-food-cart-png-image_13319772.png"
+            width="35%"
+            clip-path: inset(500px 100px 100px 50px);
+            alt="footer"
+          />
+          <div class="followus">
+            <p style="font-weight: bold;">Follow us:</p>
+            <p>
+              <i class="fa-brands fa-square-facebook fa-2x" style="color: #1100ff;"></i>
+              <i class="fa-brands fa-facebook-messenger fa-2x" style="color: #d400ff;"></i>
+              <i width="100" height="100" class="fa-brands fa-youtube fa-2x" style="color: #ff0000;"></i>
+              <i class="fa-brands fa-tiktok fa-2x" style="color: #ffffff; background-color: black; border: 5px solid black"></i>
+            </p>
+          </div>
+        </div>
+        <script src="./menu.js"></script>
+
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"
+        ></script>
+
+        <!-- <footer>
+          <div id="foot">
+            <p class="contract">Phone number: 090 2729 859</p>
+            <br />
+            <p class="contract">Contract:</p>
+            <a
+              ><img
+                style="background-color: white; border-radius: 4px"
+                src="https://iconape.com/wp-content/png_logo_vector/zalo.png"
+                width="25"
+                height="25"
+                alt="zalo"
+            /></a>
+            <a
+              ><img
+                src="https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338509_1280.png"
+                width="25"
+                height="25"
+                alt="zalo"
+            /></a>
+            <a
+              ><img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Facebook_Messenger_logo_2020.svg/1200px-Facebook_Messenger_logo_2020.svg.png"
+                width="25"
+                height="25"
+                alt="zalo"
+            /></a>
+          </div>
+        </footer> -->
+      </div>
+    </section>
+  </body>
+</html>
