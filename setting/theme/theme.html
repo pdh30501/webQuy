@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Toggle Switch</title>
+        <link rel="stylesheet" href="theme.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+    <style>
+      .switch {
+        position: relative;
+        display: inline-block;
+        margin: 150px;
+        margin-left: 350px;
+        width: 600px;
+        height: 340px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.5s;
+        border-radius: 340px;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 260px;
+        width: 260px;
+        left: 40px;
+        bottom: 40px;
+        background-color: white;
+        transition: 0.5s;
+        border-radius: 50%;
+      }
+
+      input:checked + .slider {
+        background-color: #4caf50;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(260px);
+      }
+    </style>
+  </head>
+  <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <a class="logo" href="../../homepage/homepage.html">
+        <p id="carry">🍛</p>
+        <p id="S">S</p>
+        <p id="treet">treet</p>
+        <p id="F">F</p>
+        <p id="east">east</p>
+      </a>
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="../menu/menu.html">
+              <i class="fa-solid fa-clipboard-list"></i> Menu
+            </a>
+            <a class="nav-link" href="../news/news.html">
+              <i class="fa-solid fa-newspaper"></i> Tin tức
+            </a>
+            <a class="nav-link" href="../shopping/shop.html">
+              <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+            </a>
+            <!-- Example single danger button -->
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn-danger dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-user"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../login/login.html"
+                    >Đăng nhập</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="../register/signup.html"
+                    >Đăng ký</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="../information/inform.html">Thông tin</a>
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button
+                type="button"
+                class="btn-danger dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-gear"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="../setting/about/about.html">About</a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="../setting/theme/theme.html">Theme</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  <label class="switch">
+      <input type="checkbox" id="toggleSwitch" />
+      <span class="slider""></span>
+    </label>
+
+    <script>
+      const toggle = document.getElementById("toggleSwitch");
+
+      // Hàm đổi giao diện dựa theo trạng thái
+      function applyTheme(isDark) {
+        if (isDark) {
+          document.body.style.backgroundColor = "black";
+          document.body.style.color = "white";
+          toggle.checked = true;
+        } else {
+          document.body.style.backgroundColor = "white";
+          document.body.style.color = "black";
+          toggle.checked = false;
+        }
+      }
+
+      // Khi người dùng thay đổi nút
+      toggle.addEventListener("change", function () {
+        const isDark = this.checked;
+        applyTheme(isDark);
+        localStorage.setItem("darkMode", isDark); // Lưu trạng thái vào localStorage
+      });
+
+      // Khi trang được tải lại → lấy từ localStorage và áp dụng
+      window.addEventListener("DOMContentLoaded", function () {
+        const savedMode = localStorage.getItem("darkMode");
+        const isDark = savedMode === "true"; // Vì localStorage luôn lưu dưới dạng chuỗi
+        applyTheme(isDark);
+      });
+    </script>
+    <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+          crossorigin="anonymous"
+        ></script>
+  </body>
+</html>

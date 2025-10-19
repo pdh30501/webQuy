@@ -1,14 +1,3 @@
-#menu{
-  display: block;
-  margin-top: 100px;
-  margin-left: 120px;
-  font-weight: bolder;
-}
-.foot-img {
-  margin-top: 800px;
-  margin-left: 0px;
-  margin-right: 0px;
-}
 .fa-solid {
   transition: color 0.25s linear;
 }
@@ -111,16 +100,6 @@
   text-shadow: 0 0 10px rgba(255, 165, 0, 0.75),
     0 0 20px rgba(255, 0165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.25);
 }
-.contract {
-  display: inline;
-}
-#foot {
-  padding: 5px;
-  font-size: 20px;
-  text-align: center;
-  color: white;
-  background-color: rgb(0, 0, 0);
-}
 .navbar.navbar-expand-lg.bg-body-tertiary {
   height: 14%;
   background-color: rgba(0, 0, 0, 0.5);
@@ -169,40 +148,4 @@
 }
 .dropdown-divider {
   border-color: rgb(255, 255, 255);
-}
-.container-grid {
-  text-align: left;
-  display: flex;
-  flex-direction: row;
- justify-content: space-evenly;
-
-}
-.aboutus {
-  font-size: 25px;
-  margin-top: 300px;
-}
-.aboutus p {
-  margin-bottom: 0px;
-}
-.followus {
-  font-size: 25px;
-  margin-top: 300px;
-}
-.followus p {
-  margin-bottom: 0px;
-}
-.fa-brands.fa-square-facebook.fa-2x:hover {
-  font-size: 90px;
-}
-.fa-brands.fa-facebook-messenger.fa-2x:hover {
-  font-size: 90px;
-}
-.fa-brands.fa-youtube.fa-2x:hover {
-  font-size: 90px;
-}
-.fa-brands.fa-tiktok.fa-2x:hover {
-  font-size: 90px;
-}
-.fa-brands {
-  transition: font-size 0.25s ease-in-out;
 }

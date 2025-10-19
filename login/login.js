@@ -1,15 +1,37 @@
-function check() {
-  var input1 = document.getElementById("name").value.trim();
-  var input2 = document.getElementById("password").value.trim();
-  const output1 = localStorage.getItem("username");
-  const output2 = localStorage.getItem("password");
-  if (input1 == output1) {
-    if (input2 === output2) {
-      window.location.href = "../homepage/homepage.html";
-    } else {
-          document.getElementById("wrongPass").innerText = "Password không đúng!";
-    }
-  } else {
-    document.getElementById("wrongName").innerText = "Username không đúng!";
+import { auth } from "../firebase-config.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Script loaded");
+
+  const inpEmail = document.querySelector("#email");
+  const inpPwd = document.querySelector("#password");
+  const loginForm = document.querySelector(".login123");
+
+  if (!loginForm) {
+    console.error("Form .Login not found!");
+    return;
   }
-}
+
+  loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    console.log("Form submitted");
+
+    const email = inpEmail.value.trim();
+    const password = inpPwd.value;
+
+    if (!email || !password) {
+      alert("Vui lòng điền đủ các trường");
+      return;
+    }
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      alert("Đăng nhập thành công!");
+      window.location.href = "../homepage/homepage.html";
+    } catch (error) {
+      console.error("Firebase login error:", error);
+      alert("Đăng nhập thất bại: " + error.message);
+    }
+  });
+});
