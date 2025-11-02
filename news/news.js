@@ -7,6 +7,8 @@ const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(
 fetch(url)
   .then((response) => response.json())
   .then((data) => {
+        console.log(data); // 👈 Xem cấu trúc thật sự của response
+
     const container = document.getElementById("news-container");
     if (data.articles.length === 0) {
       container.innerHTML = "<p>Không tìm thấy bài viết nào.</p>";
@@ -45,5 +47,26 @@ backToTop.addEventListener("click", () => {
   window.scrollTo({
     top: 0,
     behavior: "smooth",
+  });
+});
+
+// Khi load trang
+document.addEventListener("DOMContentLoaded", () => {
+  // Lấy màu đã lưu nếu có
+  const savedColor = localStorage.getItem("bgColor");
+  if (savedColor) {
+    document.body.style.backgroundColor = savedColor;
+  }
+
+  // Giả sử bạn có nút đổi màu
+  const btnChangeColor = document.getElementById("btnChangeColor");
+  btnChangeColor.addEventListener("click", () => {
+    const newColor = prompt("Nhập màu nền mới (tên màu hoặc hex):");
+    if (newColor && newColor.trim() !== "") {
+      document.body.style.backgroundColor = newColor;
+
+      // Lưu vào localStorage
+      localStorage.setItem("bgColor", newColor);
+    }
   });
 });

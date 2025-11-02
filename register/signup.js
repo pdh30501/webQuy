@@ -30,39 +30,39 @@
 //   }
 // }
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
-import { doc, setDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-import {auth, db} from '../firebase-config.js'
+import { collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+import { auth, db } from '../firebase-config.js'
 
 
 
 //la
-const inpUsername=document.querySelector("#name");
+const inpUsername = document.querySelector("#name");
 const inpEmail = document.querySelector("#email");
 const inpPwd = document.querySelector("#password");
-const registerForm =document.querySelector("#signup");
+const registerForm = document.querySelector("#signup");
 
 
-async function handleRegister(event){
+async function handleRegister(event) {
     event.preventDefault(); // ngan ko cho form reload
 
-    let username=inpUsername.value.trim();
-    let email=inpEmail.value.trim();
-    let password=inpPwd.value;
+    let username = inpUsername.value.trim();
+    let email = inpEmail.value.trim();
+    let password = inpPwd.value;
 
-    let role_id= 2 //guest=2, admin =1
+    let role_id = 2 //guest=2, admin =1
 
 
     //kiem tra rong
-    if (!username || !email || !password){
+    if (!username || !email || !password) {
         alert("Vui long dien du cac truong")
         return
     }
 
     try {
-        const userCredential= await createUserWithEmailAndPassword(auth, email, password);
-        const user=userCredential.user; //lay thong tin user vua tao
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user; //lay thong tin user vua tao
 
-        const userData={
+        const userData = {
             username,
             email,
             role_id,
@@ -72,11 +72,12 @@ async function handleRegister(event){
         await setDoc(doc(db, "users", user.uid), userData);
         alert("Sign up successully, YES SIRRRRR")
         registerForm.reset()
-   }
-    catch (error){
-        console.error("Error: ",error.message)
-        alert("loi"+ error.message)
+        
+    }
+    catch (error) {
+        console.error("Error: ", error.message)
+        alert("loi" + error.message)
     }
 }
 //gan su kien submit cho Form
-registerForm.addEventListener('submit',handleRegister )
+registerForm.addEventListener('submit', handleRegister)

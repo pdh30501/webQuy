@@ -1,6 +1,11 @@
-import { auth } from "../firebase-config.js";
-import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
-
+import { auth, db } from "../firebase-config.js";
+import {
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+import {
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script loaded");
 
@@ -24,11 +29,21 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Vui lòng điền đủ các trường");
       return;
     }
-
-    try {
+ try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      alert("Đăng nhập thành công!");
-      window.location.href = "../homepage/homepage.html";
+      const user = userCredential.user;
+
+      // Lấy role_id từ Firestore
+      const userDoc = await getDoc(doc(db, "users", user.uid));
+      const userData = userDoc.data();
+
+      if (userData.role_id === 1) {
+        alert("Chào mừng Admin!");
+        window.location.href = "../admin/admin.html";
+      } else {
+        alert("Đăng nhập thành công!");
+        window.location.href = "../homepage/homepage.html";
+      }
     } catch (error) {
       console.error("Firebase login error:", error);
       alert("Đăng nhập thất bại: " + error.message);

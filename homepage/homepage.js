@@ -1,3 +1,3 @@
 function buy() {
-    window.location.href = "../menu/menu.html";
+  window.location.href = "../menu/menu.html";
 }
