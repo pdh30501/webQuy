@@ -29,11 +29,37 @@
 //     document.getElementById("wrongName").innerText = "Username phải có chữ trong đó";
 //   }
 // }
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
-import { collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
-import { auth, db } from '../firebase-config.js'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+import {
+  collection,
+  doc,
+  setDoc,
+} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+import { auth, db } from "../firebase-config.js";
 
+function showToast(message, type = "info", duration = 3500) {
+  const toastContainer = document.getElementById("toast");
 
+  // Tạo phần tử thông báo
+  const toast = document.createElement("div");
+  toast.className = `toast-message toast-${type}`;
+  toast.textContent = message;
+
+  // Thêm vào DOM
+  toastContainer.appendChild(toast);
+
+  // Xóa sau khi hết thời gian
+  setTimeout(() => {
+    toast.remove();
+  }, duration + 500); // chờ animation fade out xong
+}
+// showToast("Đăng nhập thành công!", "success");
+// showToast("Lỗi kết nối server!", "error");
+// showToast("Cảnh báo: Bạn sắp hết phiên!", "warning");
+// showToast("Đang tải dữ liệu...", "info", 5000);
 
 //la
 const inpUsername = document.querySelector("#name");
@@ -41,43 +67,43 @@ const inpEmail = document.querySelector("#email");
 const inpPwd = document.querySelector("#password");
 const registerForm = document.querySelector("#signup");
 
-
 async function handleRegister(event) {
-    event.preventDefault(); // ngan ko cho form reload
+  event.preventDefault(); // ngan ko cho form reload
 
-    let username = inpUsername.value.trim();
-    let email = inpEmail.value.trim();
-    let password = inpPwd.value;
+  let username = inpUsername.value.trim();
+  let email = inpEmail.value.trim();
+  let password = inpPwd.value;
 
-    let role_id = 2 //guest=2, admin =1
+  let role_id = 2; //guest=2, admin =1
 
+  //kiem tra rong
+  if (!username || !email || !password) {
+    showToast("Vui lòng điền đủ thông tin!", "error");
+    return;
+  }
 
-    //kiem tra rong
-    if (!username || !email || !password) {
-        alert("Vui long dien du cac truong")
-        return
-    }
+  try {
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user; //lay thong tin user vua tao
 
-    try {
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user; //lay thong tin user vua tao
-
-        const userData = {
-            username,
-            email,
-            role_id,
-            balance: 0,
-            createdAt: new Date() // thoidiem dang ky
-        }
-        await setDoc(doc(db, "users", user.uid), userData);
-        alert("Sign up successully, YES SIRRRRR")
-        registerForm.reset()
-        
-    }
-    catch (error) {
-        console.error("Error: ", error.message)
-        alert("loi" + error.message)
-    }
+    const userData = {
+      username,
+      email,
+      role_id,
+      balance: 0,
+      createdAt: new Date(), // thoidiem dang ky
+    };
+    await setDoc(doc(db, "users", user.uid), userData);
+    showToast("Đăng ký thành công!", "success");
+    registerForm.reset();
+  } catch (error) {
+    console.error("Error: ", error.message);
+    showToast("Lỗi: " + error.message, "error");
+  }
 }
 //gan su kien submit cho Form
-registerForm.addEventListener('submit', handleRegister)
+registerForm.addEventListener("submit", handleRegister);

@@ -1,3 +1,63 @@
+#toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast-message {
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #fff;
+  font-family: sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 0.4s forwards, fadeOut 0.5s ease 3s forwards;
+}
+
+/* Kiểu màu cho từng loại */
+.toast-success {
+  background: #28a745;
+}
+
+/* xanh lá */
+.toast-error {
+  background: #dc3545;
+}
+
+/* đỏ */
+.toast-warning {
+  background: #ffc107;
+  color: #000;
+}
+
+/* vàng */
+.toast-info {
+  background: #17a2b8;
+}
+
+/* xanh dương nhạt */
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+
 #backToTop {
   display: none;
   /* Ẩn khi chưa cuộn */
@@ -244,6 +304,7 @@
 
 .aboutus p {
   margin-bottom: 0px;
+  font-weight: lighter;
 }
 
 .followus {
@@ -284,4 +345,46 @@ body {
 .container.my-5 {
   margin-top: 40px !important;
   /* đảm bảo không trồi */
+}
+
+.ca:hover {
+  box-shadow: 0 0 5px rgba(255, 0, 0, 20), 0 0 10px rgba(255, 0, 0, 20),
+    0 0 15px rgba(255, 0, 0, 20);
+}
+
+@media (max-width: 1300px) {
+  .logo {
+    margin-left: 9vw;
+    font-size: 4vw;
+    flex-wrap: nowrap;
+
+  }
+
+  .nav-link {
+    margin-right: 0.1vw;
+    font-size: 0.1vw;
+  }
+
+  .btn-danger.dropdown-toggle {
+    margin-right: 25px;
+  }
+
+  .container-grid {
+    margin-top: -150px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    box-align: center;
+  }
+
+  .foot-img {
+    width: 50vw;
+    margin: -10px auto -250px auto;
+  }
+
+
+  .container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 }

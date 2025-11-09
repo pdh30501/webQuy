@@ -1,6 +1,66 @@
+#toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast-message {
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #fff;
+  font-family: sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 0.4s forwards, fadeOut 0.5s ease 3s forwards;
+}
+
+/* Kiểu màu cho từng loại */
+.toast-success {
+  background: #28a745;
+}
+
+/* xanh lá */
+.toast-error {
+  background: #dc3545;
+}
+
+/* đỏ */
+.toast-warning {
+  background: #ffc107;
+  color: #000;
+}
+
+/* vàng */
+.toast-info {
+  background: #17a2b8;
+}
+
+/* xanh dương nhạt */
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 .Login {
   margin-top: 5px;
   margin-bottom: 25px;
@@ -8,6 +68,7 @@
   color: white;
   font-size: 40px;
 }
+
 .button {
   border-radius: 1px;
   margin-top: 10px;
@@ -20,11 +81,14 @@
   transition: background-color 0.2s linear, color 0.2s linear;
   font-weight: bold;
 }
+
 .button:hover {
-  background-color: #ffffff; /* Màu nền khi di chuột vào */
+  background-color: #ffffff;
+  /* Màu nền khi di chuột vào */
   color: rgb(255, 35, 35);
   font-weight: bolder;
 }
+
 .input {
   border-radius: 1px;
   color: white;
@@ -35,12 +99,15 @@
   background-color: rgb(80, 80, 80);
   transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
+
 .input:hover {
   background-color: rgb(90, 90, 90);
 }
+
 .label {
   color: white;
 }
+
 .logo {
   margin-top: 0px;
   margin-left: 0px;
@@ -49,40 +116,52 @@
   font-weight: bolder;
   font-size: 40px;
 }
+
 .logo p {
   font-size: 49px;
   transition: text-shadow 0.25s linear;
 }
+
 .p {
   font-size: 17.5px;
   color: white;
 }
+
 .wrong {
   margin-top: 10px;
   margin-bottom: 20px;
   color: rgb(253, 30, 30);
   font-weight: bold;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65), 0 0 30px rgba(255, 0, 0, 0.55);
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65),
+    0 0 30px rgba(255, 0, 0, 0.55);
 }
+
 body {
   background-image: url("https://bombaydosacafe.ca/wp-content/uploads/2022/11/best-street-food-in-Calgary.jpg");
   background-size: 100% auto;
   background-repeat: no-repeat;
   display: flex;
-  justify-content: center; /* căn ngang */
-  align-items: center; /* căn dọc */
+  justify-content: center;
+  /* căn ngang */
+  align-items: center;
+  /* căn dọc */
   height: 100vh;
   margin: 0;
   background-position: center;
 }
+
 #carry {
   text-align: center;
   display: inline;
-  text-shadow: 0 0 10px rgba(12, 12, 12, 0.65), 0 0 20px rgba(0, 0, 0, 0.325), 0 0 30px rgba(0, 0, 0, 0.1125);
+  text-shadow: 0 0 10px rgba(12, 12, 12, 0.65), 0 0 20px rgba(0, 0, 0, 0.325),
+    0 0 30px rgba(0, 0, 0, 0.1125);
 }
+
 #carry:hover {
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.75), 0 0 20px rgb(255, 255, 255, 0.5), 0 0 30px rgb(255, 255, 255, 0.25);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.75),
+    0 0 20px rgb(255, 255, 255, 0.5), 0 0 30px rgb(255, 255, 255, 0.25);
 }
+
 #div {
   width: 350px;
   margin-top: 0%;
@@ -91,58 +170,82 @@ body {
   background-color: rgba(0, 0, 0, 0.767);
   border-radius: 30px;
 }
+
 #east {
   text-align: center;
   color: orange;
   display: inline;
-  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  text-shadow: 0 0 10px rgba(255, 165, 0, 0.75), 0 0 20px rgba(255, 0165, 0, 0.5), 0 0 30px rgba(255, 165 , 0, 0.25);
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.75),
+    0 0 20px rgba(255, 0165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.25);
 }
+
 #east:hover {
-  text-shadow: 0 0 10px rgba(255, 165, 0, 1), 0 0 20px rgba(255, 0165, 0, 1), 0 0 30px rgba(255, 165 , 0, 1);
+  text-shadow: 0 0 10px rgba(255, 165, 0, 1), 0 0 20px rgba(255, 0165, 0, 1),
+    0 0 30px rgba(255, 165, 0, 1);
 }
+
 #F {
   text-align: center;
   color: red;
   display: inline;
-  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65), 0 0 30px rgba(255, 0, 0, 0.55);
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65),
+    0 0 30px rgba(255, 0, 0, 0.55);
 }
+
 #F:hover {
-  text-shadow: 0 0 10px rgba(255, 0, 0, 20), 0 0 20px rgba(255, 0, 0, 20), 0 0 30px rgba(255, 0, 0, 20);
+  text-shadow: 0 0 10px rgba(255, 0, 0, 20), 0 0 20px rgba(255, 0, 0, 20),
+    0 0 30px rgba(255, 0, 0, 20);
 }
+
 #link {
   transition: color 0.2s ease-out;
   text-decoration: none;
   font-weight: bold;
 }
+
 #link:hover {
   color: orange !important;
   text-decoration: underline;
 }
+
 #S {
   text-align: center;
   color: red;
   display: inline;
-  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65), 0 0 30px rgba(255, 0, 0, 0.55);
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65),
+    0 0 30px rgba(255, 0, 0, 0.55);
 }
+
 #S:hover {
-  text-shadow: 0 0 10px rgba(255, 0, 0, 20), 0 0 20px rgba(255, 0, 0, 20), 0 0 30px rgba(255, 0, 0, 20);
+  text-shadow: 0 0 10px rgba(255, 0, 0, 20), 0 0 20px rgba(255, 0, 0, 20),
+    0 0 30px rgba(255, 0, 0, 20);
 }
+
 #treet {
   text-align: center;
   color: orange;
   display: inline;
-  text-shadow: 0 0 10px rgba(255, 165, 0, 0.75), 0 0 20px rgba(255, 0165, 0, 0.5), 0 0 30px rgba(255, 165 , 0, 0.25);
-  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.75),
+    0 0 20px rgba(255, 0165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.25);
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
 }
+
 #treet:hover {
-  text-shadow: 0 0 10px rgba(255, 165, 0, 1), 0 0 20px rgba(255, 0165, 0, 1), 0 0 30px rgba(255, 165 , 0, 1);
+  text-shadow: 0 0 10px rgba(255, 165, 0, 1), 0 0 20px rgba(255, 0165, 0, 1),
+    0 0 30px rgba(255, 165, 0, 1);
 }
+
 input::placeholder {
   color: rgb(175, 175, 175);
 }
+
 input:hover::placeholder {
   color: rgb(180, 180, 180);
 }

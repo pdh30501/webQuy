@@ -1,3 +1,62 @@
+#toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.toast-message {
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #fff;
+  font-family: sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(100%);
+  animation: slideIn 0.4s forwards, fadeOut 0.5s ease 3s forwards;
+}
+
+/* Kiểu màu cho từng loại */
+.toast-success {
+  background: #28a745;
+}
+
+/* xanh lá */
+.toast-error {
+  background: #dc3545;
+}
+
+/* đỏ */
+.toast-warning {
+  background: #ffc107;
+  color: #000;
+}
+
+/* vàng */
+.toast-info {
+  background: #17a2b8;
+}
+
+/* xanh dương nhạt */
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 #backToTop {
   display: none;
   /* Ẩn khi chưa cuộn */
@@ -213,7 +272,8 @@
 
 .dropdown-menu .dropdown-item {
   color: rgb(0, 0, 0) !important;
-  transition: text-shadow 0.25s linear, background-color 0.25s linear, font-weight 0.25s linear;
+  transition: text-shadow 0.25s linear, background-color 0.25s linear,
+    font-weight 0.25s linear;
 }
 
 .dropdown-menu .dropdown-item:hover {
@@ -236,7 +296,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
 }
 
 .aboutus {

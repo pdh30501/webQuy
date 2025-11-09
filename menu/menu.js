@@ -1,5 +1,25 @@
 // menu.js
 
+function showToast(message, type = "info", duration = 3500) {
+  const toastContainer = document.getElementById("toast");
+
+  // Tạo phần tử thông báo
+  const toast = document.createElement("div");
+  toast.className = `toast-message toast-${type}`;
+  toast.textContent = message;
+
+  // Thêm vào DOM
+  toastContainer.appendChild(toast);
+
+  // Xóa sau khi hết thời gian
+  setTimeout(() => {
+    toast.remove();
+  }, duration + 500); // chờ animation fade out xong
+}
+// showToast("Đăng nhập thành công!", "success");
+// showToast("Lỗi kết nối server!", "error");
+// showToast("Cảnh báo: Bạn sắp hết phiên!", "warning");
+// showToast("Đang tải dữ liệu...", "info", 5000);
 import { db } from "../firebase-config.js";
 import {
   getDocs,
@@ -70,6 +90,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           localStorage.setItem("selectedFoods", JSON.stringify(selectedFoods));
 
           // Điều hướng sang trang giỏ hàng hoặc trang chọn món
+          showToast("Bỏ vào giỏ hàng thành công!", "success")
           window.location.href = "../shopping/shop.html";
         });
 

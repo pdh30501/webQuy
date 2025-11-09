@@ -6,16 +6,31 @@ import {
   deleteDoc,
   doc,
   updateDoc,
-  getDoc
+  getDoc,
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+
+function showToast(message, type = "info", duration = 3500) {
+  const toastContainer = document.getElementById("toast");
+  const toast = document.createElement("div");
+  toast.className = `toast-message toast-${type}`;
+  toast.textContent = message;
+  toastContainer.appendChild(toast);
+  setTimeout(() => toast.remove(), duration + 500);
+}
+
+showToast("Chào mừng admin!", "info", 5000);
 
 const foodForm = document.getElementById("foodForm");
 const foodList = document.getElementById("foodList");
 
-// 💡 Thay bằng Cloudinary config của bạn:
-const CLOUD_NAME = "dmyln9mqv"; 
-const UPLOAD_PRESET = "food_upload"; 
+// 🔧 modal + input
+const modal = document.getElementById("editModal");
+const editName = document.getElementById("editName");
+const editDesc = document.getElementById("editDesc");
+const editPrice = document.getElementById("editPrice");
+const saveBtn = document.getElementById("saveBtn");
+const cancelBtn = document.getElementById("cancelBtn");
 
 // ================== HIỂN THỊ DANH SÁCH ==================
 async function loadFoods() {
@@ -29,22 +44,53 @@ async function loadFoods() {
       <div class="card shadow-sm">
         <img src="${data.image}" class="card-img-top" height="175" alt="${data.name}" />
         <div class="card-body">
-          <h5 class="card-title">${data.name}</h5>
-          <h6 class="card-title">${data.describe}<h6>
-          <p>${data.price}.000 VND</p>
-          <button class="btn btn-sm btn-warning" onclick="editFood('${docSnap.id}', '${data.name}', '${data.image}', ${data.price})">Sửa</button>
+          <h5 class="card-title food-name">${data.name}</h5>
+          <h6 class="card-title food-desc">${data.describe}</h6>
+          <p class="food-price">${data.price}.000 VND</p>
+          <button class="btn btn-sm btn-warning edit-btn" data-id="${docSnap.id}">Sửa</button>
           <button class="btn btn-sm btn-danger" onclick="deleteFood('${docSnap.id}')">Xóa</button>
         </div>
       </div>
     `;
     foodList.appendChild(div);
   });
+
+  // ✅ Gắn sự kiện sửa SAU khi render
+  document.querySelectorAll(".edit-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".card");
+      const nameEl = card.querySelector(".food-name");
+      const descEl = card.querySelector(".food-desc");
+      const priceEl = card.querySelector(".food-price");
+
+      // Gán dữ liệu cũ vào form
+      editName.value = nameEl.textContent;
+      editDesc.value = descEl.textContent;
+      editPrice.value = parseInt(priceEl.textContent);
+
+      // Hiển thị modal
+      modal.classList.add("show");
+
+      // Khi nhấn Lưu
+      saveBtn.onclick = async () => {
+        await updateDoc(doc(db, "foods", btn.dataset.id), {
+          name: editName.value,
+          describe: editDesc.value,
+          price: parseFloat(editPrice.value),
+        });
+
+        modal.classList.remove("show");
+        showToast("Cập nhật thành công!", "success");
+        loadFoods();
+      };
+    });
+  });
 }
 
 // ================== KIỂM TRA ADMIN ==================
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    alert("Bạn cần đăng nhập để truy cập trang này!");
+    showToast("⚠️ Khoan, bạn cần đăng nhập để truy cập trang này! ⚠️", "warning");
     window.location.href = "../login/login.html";
     return;
   }
@@ -52,23 +98,22 @@ onAuthStateChanged(auth, async (user) => {
   try {
     const userDocRef = doc(db, "users", user.uid);
     const userDocSnap = await getDoc(userDocRef);
-
     if (userDocSnap.exists()) {
       const role_id = userDocSnap.data().role_id;
       if (role_id === 1) {
         console.log("Admin verified");
         loadFoods();
       } else {
-        alert("Bạn không có quyền truy cập trang admin!");
+        showToast("⚠️ Bạn không có quyền truy cập trang admin! ⚠️", "warning");
         window.location.href = "../homepage/homepage.html";
       }
     } else {
-      alert("Không tìm thấy thông tin người dùng!");
+      showToast("Không tìm thấy thông tin người dùng!", "error");
       window.location.href = "../login/login.html";
     }
   } catch (error) {
     console.error("Lỗi khi kiểm tra quyền:", error);
-    alert("Đã xảy ra lỗi khi kiểm tra quyền truy cập!");
+    showToast("Đã xảy ra lỗi khi kiểm tra quyền truy cập!", "error");
     window.location.href = "../login/login.html";
   }
 });
@@ -82,70 +127,44 @@ foodForm.addEventListener("submit", async (e) => {
   const price = parseFloat(document.getElementById("foodPrice").value);
   const file = document.getElementById("foodImage").files[0];
 
-  if (!file) {
-    alert("Vui lòng chọn ảnh!");
-    return;
-  }
+  if (!file) return showToast("Vui lòng chọn ảnh!", "error");
 
   try {
-    // Upload lên Cloudinary
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("upload_preset", "food_upload"); // đúng tên preset bạn đã tạo
+    formData.append("upload_preset", "food_upload");
 
-    const CLOUD_NAME = "dkknjllhm"; // kiểm tra trùng chính xác Cloud name trong Dashboard
-    const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
-      method: "POST",
-      body: formData,
-    });
+    const CLOUD_NAME = "dkknjllhm";
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+      { method: "POST", body: formData }
+    );
 
     const data = await res.json();
-    console.log("Cloudinary response:", data); // xem phản hồi thật trong console
-
-    if (data.error) {
-      throw new Error("Cloudinary: " + data.error.message);
-    }
-
+    if (data.error) throw new Error("Cloudinary: " + data.error.message);
     const imageURL = data.secure_url;
-    if (!imageURL) {
-      throw new Error("Không nhận được link ảnh từ Cloudinary.");
-    }
+    if (!imageURL) throw new Error("Không nhận được link ảnh từ Cloudinary.");
 
-    // Lưu vào Firestore
-    await addDoc(collection(db, "foods"), {
-      name,
-      price,
-      describe,
-      image: imageURL,
-    });
+    await addDoc(collection(db, "foods"), { name, price, describe, image: imageURL });
 
-    alert("Thêm món thành công!");
+    showToast("Thêm món thành công!", "success");
     foodForm.reset();
     loadFoods();
   } catch (error) {
     console.error("Lỗi upload Cloudinary:", error);
-    alert("Upload thất bại: " + error.message);
+    showToast("Upload thất bại: " + error.message, "error");
   }
 });
 
-// ================== XÓA / SỬA MÓN ==================
+// ================== XÓA ==================
 window.deleteFood = async (id) => {
   await deleteDoc(doc(db, "foods", id));
-  alert("Đã xóa món!");
+  showToast("Đã xóa món!", "success");
   loadFoods();
 };
 
-window.editFood = async (id, name, describe, image, price) => {
-  const newName = prompt("Tên mới:", name);
-  const newDes = prompt("Mô tả mới:", describe);
-  const newPrice = prompt("Giá mới:", price);
-  if (newName && newPrice && newDes) {
-    await updateDoc(doc(db, "foods", id), {
-      name: newName,
-      describe: newDes,
-      price: parseFloat(newPrice)
-    });
-    alert("Cập nhật thành công!");
-    loadFoods();
-  }
-};
+// ================== ẨN / ĐÓNG MODAL ==================
+cancelBtn.addEventListener("click", () => modal.classList.remove("show"));
+window.addEventListener("click", (e) => {
+  if (e.target === modal) modal.classList.remove("show");
+});

@@ -1,3 +1,9 @@
+.image {
+  border: 2px solid rgb(255, 75, 75);
+  border-radius: 5px;
+  width: 100%;
+}
+
 #backToTop {
   display: none;
   /* Ẩn khi chưa cuộn */
@@ -24,13 +30,194 @@
     0 0 30px rgb(255, 0, 0) !important;
 }
 
+.content {
+  margin-bottom: 100px;
+}
+
+#intro {
+  margin-left: -60px;
+  margin-right: -100px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.foot-img {
+  margin-top: 800px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#outro p {
+  color: black;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: -35px;
+  text-align: center;
+  font-size: 17.5px;
+  /* display: inline; */
+  /*line-height: 1.5;  Hoặc giảm thêm nếu muốn sát hơn nữa */
+}
+
+#introduce {
+  margin-left: 175px;
+  margin-right: 0px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  /* grid-template-columns: 40% 60%; /* 2 cột: video + văn bản
+  gap: 0px; */
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  /* padding: 0px 0px 0px 0px; */
+}
+
+.fa-solid {
+  transition: color 0.25s linear;
+}
+
+.fa-solid:hover {
+  color: rgb(255, 0, 0);
+}
+
+.nav-link:hover {
+  color: orange !important;
+}
+
+.logo {
+  margin-left: 110px;
+  text-decoration: none;
+  font-size: 40px;
+  width: 50%;
+  border: none;
+}
+
+#carry:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.75),
+    0 0 20px rgb(255, 255, 255, 0.5), 0 0 30px rgb(255, 255, 255, 0.25);
+}
+
+#S:hover {
+  text-shadow: 0 0 10px rgba(255, 0, 0, 20), 0 0 20px rgba(255, 0, 0, 20),
+    0 0 30px rgba(255, 0, 0, 20);
+}
+
+#F:hover {
+  text-shadow: 0 0 10px rgba(255, 0, 0, 20), 0 0 20px rgba(255, 0, 0, 20),
+    0 0 30px rgba(255, 0, 0, 20);
+}
+
+#treet:hover {
+  text-shadow: 0 0 10px rgba(255, 165, 0, 1), 0 0 20px rgba(255, 0165, 0, 1),
+    0 0 30px rgba(255, 165, 0, 1);
+}
+
+#east:hover {
+  text-shadow: 0 0 10px rgba(255, 165, 0, 1), 0 0 20px rgba(255, 0165, 0, 1),
+    0 0 30px rgba(255, 165, 0, 1);
+}
+
+.logo p {
+  margin: 0;
+  padding: 0;
+  /* display: inline; */
+  font-weight: bolder;
+  transition: text-shadow 0.25s linear;
+}
+
+.navbar.bg-body-tertiary {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  color: white !important;
+}
+
+.mini {
+  color: orange;
+  display: inline;
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 1px rgba(255, 0, 0, 0.75), 0 0 2px rgba(255, 0, 0, 0.65),
+    0 0 3px rgba(255, 0, 0, 0.55);
+}
+
+.beside {
+  display: inline;
+  letter-spacing: -0px;
+  font-size: 18px;
+}
+
+#carry {
+  letter-spacing: -14px;
+  text-align: center;
+  display: inline;
+  text-shadow: 0 0 10px rgba(12, 12, 12, 0.65), 0 0 20px rgba(0, 0, 0, 0.325),
+    0 0 30px rgba(0, 0, 0, 0.1125);
+}
+
+#S {
+  letter-spacing: -11px;
+  margin: 0px;
+  padding: 0;
+  text-align: center;
+  color: red;
+  display: inline;
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65),
+    0 0 30px rgba(255, 0, 0, 0.55);
+}
+
+#F {
+  letter-spacing: -13px;
+  margin: 0px;
+  padding: 0;
+  text-align: center;
+  color: red;
+  display: inline;
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.75), 0 0 20px rgba(255, 0, 0, 0.65),
+    0 0 30px rgba(255, 0, 0, 0.55);
+}
+
+#treet {
+  letter-spacing: -1px;
+  margin: 0px;
+  padding: 0;
+  text-align: center;
+  color: orange;
+  display: inline;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.75),
+    0 0 20px rgba(255, 0165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.25);
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+}
+
+#east {
+  letter-spacing: -1px;
+  margin: 0px;
+  padding: 0;
+  text-align: center;
+  color: orange;
+  display: inline;
+  font-family: "Segoe Script", "Gill Sans", "Gill Sans MT", Calibri,
+    "Trebuchet MS", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 165, 0, 0.75),
+    0 0 20px rgba(255, 0165, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.25);
+}
+
 .article {
   background-color: rgb(255, 201, 100);
   border: 3px solid rgb(255, 75, 75);
   border-radius: 10px;
   padding: 10px;
-  margin: 10px;
   transition: box-shadow 0.25s linear;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .article:hover {
@@ -58,13 +245,6 @@ a:hover {
   color: rgb(0, 0, 255) !important;
   text-shadow: 0 0 10px rgba(0, 0, 255, 0.2) 0 0 20px rgba(0, 0, 255, 0.2),
     0 0 30px rgba(0, 0, 255, 0.2) !important;
-}
-
-#news {
-  display: block;
-  margin-top: 100px;
-  margin-left: 120px;
-  font-weight: bolder;
 }
 
 .foot-img {
@@ -278,8 +458,14 @@ a:hover {
   margin-top: 300px;
 }
 
+body {
+  padding-top: 4%;
+  /* khoảng trống dưới navbar */
+}
+
 .aboutus p {
   margin-bottom: 0px;
+  font-weight: lighter;
 }
 
 .followus {
@@ -309,4 +495,150 @@ a:hover {
 
 .fa-brands {
   transition: font-size 0.25s ease-in-out;
+}
+
+#news-container {
+  width: 70%;
+  margin: 60px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* === Bố cục mỗi bài === */
+.article {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  background: white;
+}
+
+/* === Ảnh bên trái === */
+.article img {
+  width: 25%;
+  /* ✅ ảnh chiếm khoảng 25% chiều ngang */
+  max-width: 180px;
+  /* không to quá */
+  height: 110px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* === Nội dung bên phải === */
+.article-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Tiêu đề */
+.article-content h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+}
+
+/* Mô tả */
+.article-content p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Ẩn link "xem chi tiết" */
+.article-content a {
+  display: none;
+}
+
+/* Liên kết bao quanh cả bài */
+.article-link {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  text-decoration: none;
+  /* bỏ gạch chân */
+  color: inherit;
+  /* giữ màu chữ nguyên */
+}
+
+/* Khi hover vào bài */
+.article-link:hover h2 {
+  color: #0056b3;
+  /* tiêu đề xanh nhẹ */
+}
+
+.article-link:hover img {
+  filter: brightness(1.1);
+}
+
+/* Ảnh bên trái */
+.article-link img {
+  width: 25%;
+  max-width: 180px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Nội dung bên phải */
+.article-content {
+  flex: 1;
+}
+
+.navbar-toggler {
+  position: absolute;
+  
+  z-index: 10000;
+  background-color: black;
+  /* đảm bảo nút nằm trên các layer khác */
+}
+.navbar-toggler-icon {
+  filter: invert(1) grayscale(100%); /* đổi màu icon sang đen/trắng tùy nền */
+}
+@media (max-width: 1300px) {
+  .logo {
+    margin-left: 9vw;
+    font-size: 4vw;
+    flex-wrap: nowrap;
+
+  }
+
+  .nav-link {
+    margin-right: 0.1vw;
+    font-size: 0.1vw;
+  }
+
+  .btn-danger.dropdown-toggle {
+    margin-right: 25px;
+  }
+
+  .container-grid {
+    margin-top: -150px;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    box-align: center;
+  }
+
+  .foot-img {
+    width: 50vw;
+    margin: -10px auto -250px auto;
+  }
+
+  .article {
+    flex-wrap: wrap;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 }

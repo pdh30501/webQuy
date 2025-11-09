@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Page</title>
-  <link rel="stylesheet" href="about.css" />
+  <title>Information Page</title>
+  <link rel="stylesheet" href="inform2.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -14,8 +14,9 @@
 </head>
 
 <body>
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <a class="logo" href="../../homepage/homepage.html">
+    <a class="logo" href="../admin/admin.html">
       <p id="carry">🍛</p>
       <p id="S">S</p>
       <p id="treet">treet</p>
@@ -23,88 +24,87 @@
       <p id="east">east</p>
     </a>
     <div class="container-fluid">
-      
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
         <span class="navbar-toggler-icon"></span>
       </button> -->
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="../../menu/menu.html">
-            <i class="fa-solid fa-clipboard-list"></i> Menu
+          <a class="nav-link text-danger fw-bold" href="../admin/admin.html">
+            <i class="fa-solid fa-screwdriver-wrench"></i> Quản lý Menu
           </a>
-          <a class="nav-link" href="../../news/news.html">
-            <i class="fa-solid fa-newspaper"></i> Khám phá
-          </a>
-          <a class="nav-link" href="../../shopping/shop.html">
-            <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
-          </a>
-          <!-- Example single danger button -->
+
           <div class="btn-group">
             <button type="button" class="btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa-solid fa-user"></i>
             </button>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="../../login/login.html">Đăng xuất</a>
+                <a class="dropdown-item" href="../login/login.html">Đăng xuất</a>
               </li>
               <li>
                 <hr class="dropdown-divider" />
               </li>
               <li>
-                <a class="dropdown-item" href="../../information/inform.html">Thông tin</a>
+                <a class="dropdown-item" href="../information-admin/inform2.html">Thông tin</a>
               </li>
             </ul>
           </div>
-          <div class="btn-group">
-            <button type="button" class="btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-gear"></i>
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="../about/about.html">About</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-              <li>
-                <a class="dropdown-item" href="../theme/theme.html">Theme</a>
-              </li>
-            </ul>
-          </div>
+          </ul>
         </div>
       </div>
     </div>
+    </div>
   </nav>
 
-  <div id="about">
-    <h1 id="title">About StreetFeast</h1><br>
-    <p>
-      - Sứ mệnh - <br>
-      Mang đến trải nghiệm ẩm thực đường phố nhanh chóng, tiện lợi, và đáng tin cậy cho mọi người. <br><br><br>
-      - Giá trị cốt lõi - <br>
-      Thông tin đáng tin <br>
-      Khám phá ẩm thực <br>
-      Đặt món từ xa <br>
-      Trải nghiệm mỹ thực <br><br><br>
-      - Đội ngũ phát triển - <br>
-      ChatGPT <br>
-      Nguyễn Đức Thiên Quý<br>
-      Phan Diễm Hương <br><br><br>
-      - Thông tin liên hệ - <br>
-      Email: quynguyen0902729859@gmail.comp <br>
-      Hotline: 0902729859 <br>
-      Address: MindX-ONL-JSI36 <br><br><br>
-      - Liên kết mạng xã hội - <br>
-      <i class="fa-brands fa-square-facebook fa-2x" style="color: #1100ff; background-color: white;"></i>
-      <i class="fa-brands fa-facebook-messenger fa-2x" style="color: #d400ff; background-color: white;"></i>
-      <i width="100" height="100" class="fa-brands fa-youtube fa-2x"
-        style="color: #ff0000; background-color: white;"></i>
-      <i class="fa-brands fa-tiktok fa-2x"
-        style="color: #ffffff; background-color: black; border: 5px solid black "></i>
-    </p>
+  <h1><b>My profile</b></h1>
+  <div id="container">
+    <div id="one">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.AI5e7MykpdjCVOLzei9dFgAAAA?pid=Api&P=0&h=220" alt="User Avatar"
+        class="user-avatar" />
+      <button class="btn-edit">Thay ảnh</button>
+    </div>
+    <div id="two">
+      <div>
+        <strong>Tên ngưởi dùng:</strong>
+        <span id="username">...Loading...</span>
+      </div>
+      <div>
+        <strong>Email:</strong>
+        <span id="email">...Loading...</span>
+      </div>
+      <div>
+        <strong>Mật khẩu:</strong>
+        <span id="password"> *********</span>
+      </div>
+      <div>
+        <strong>Tổng món hiện có:</strong>
+        <span id="total">0đ</span>
+      </div>
+    </div>
   </div>
 
+
+  <div class="container-grid">
+    <div class="aboutus">
+      <p style="font-weight: bold;">About us:</p>
+      <p>- Giờ hoạt động: 24/24</p>
+      <p>- Phone number: 090 2729 859</p>
+    </div>
+    <img class="foot-img" style="background-color: white; margin-top: 125px"
+      src="https://png.pngtree.com/png-clipart/20231016/original/pngtree-street-food-cart-png-image_13319772.png"
+      width="35%" clip-path: inset(500px 100px 100px 50px); alt="footer" />
+    <div class="followus">
+      <p style="font-weight: bold;">Follow us:</p>
+      <p>
+        <i class="fa-brands fa-square-facebook fa-2x" style="color: #1100ff;"></i>
+        <i class="fa-brands fa-facebook-messenger fa-2x" style="color: #d400ff;"></i>
+        <i width="100" height="100" class="fa-brands fa-youtube fa-2x" style="color: #ff0000;"></i>
+        <i class="fa-brands fa-tiktok fa-2x"
+          style="color: #ffffff; background-color: black; border: 5px solid black"></i>
+      </p>
+    </div>
+  </div>
+  <script type="module" src="./inform2.js" defer></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -145,26 +145,6 @@
   </div>
   </section>
   <button id="backToTop" title="Lên đầu trang">↑</button>
-  <script>
-    const backToTop = document.getElementById("backToTop");
-
-    // Hiện nút khi cuộn xuống 200px
-    window.addEventListener("scroll", () => {
-      if (document.documentElement.scrollTop > 150) {
-        backToTop.style.display = "block";
-      } else {
-        backToTop.style.display = "none";
-      }
-    });
-
-    // Khi click thì cuộn mượt lên đầu
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    });
-  </script>
 </body>
 
 </html>
